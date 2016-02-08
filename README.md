@@ -22,7 +22,6 @@ hackpack-chrome-ext-master/
 ├── _locales
 │   └── en
 │       └── messages.json
-├── css
 ├── icons
 │   ├── TreeHacks-white-16.png
 │   ├── TreeHacks-white-19.png
@@ -43,12 +42,15 @@ hackpack-chrome-ext-master/
     │   └── inject.js
     └── options
         ├── options.html
+        ├── options.css
         └── options.js
 ```
 
 Alternatively, if you are a Git master, you can sync with [our Git repository](https://github.com/TreeHacks/hackpack-chrome-ext) over HTTPS or SSH. Note: If you aren't familiar with Git, or don't know what the following lines would do, don't execute the following commands!
 
 ```
+# From Terminal.app or equivalent...
+
 # Clone via HTTPS
 $ git clone https://github.com/TreeHacks/hackpack-chrome-ext.git
 # or SSH
@@ -73,7 +75,9 @@ At a high level:
 
 Next, we have to tell Chrome to treat our starter code (`hackpack-chrome-ext-master/`) as a Chrome extension. To do this, 
 
+### Background Knowledge
 
+For this project, you will need some knowledge of Javascript.
 
 ### Learn Javascript
 
@@ -113,7 +117,11 @@ function modifyText(text, settings) { // For part 1, settings will always be nul
 
 For example, `modifyText('kern is a calhacks organizer', null)` should return the string `'kern is a butthacks organizer'`. 
 
-(Hint: Check out the documentation on [JavaScript String replace()](http://www.w3schools.com/jsref/jsref_replace.asp) or 
+(Hint: Check out the documentation on [JavaScript String replace](http://www.w3schools.com/jsref/jsref_replace.asp))
+
+Test your method by visiting the [CalHacks website](http://www.calhacks.io/) or the [UC Berkeley Wiki page](https://en.wikipedia.org/wiki/University_of_California,_Berkeley)
+
+Can you make the replacement respect the casing of the original text? That is, can you implement `modifyText` so that `modifyText('iCal')` returns `iButt` and `modifyText('calendar')` returns `buttender`?
 
 ## Checkpoint 2: Custom Translations
 
@@ -141,6 +149,65 @@ If you read XKCD, some of this may seem familiar to you. If you haven't read XKC
 
 ---
 
+These comics show some great text replacements, which I've reproduced here in plaintext format.
+
+```
+batman -> a man dressed like a bat
+
+keyboard -> leopard
+
+witnesses -> these dudes i know
+allegedly -> kinda probably
+new study -> tumblr post
+rebuild -> avenge
+space -> spaaace
+google glass -> virtual boy
+smartphone -> pokedex
+electric -> atomic
+senator -> elf-lord
+car -> cat
+election -> eating contest
+congressional leaders -> river spirits
+homeland security -> homestar runner
+could not be reached for comment -> is guilty and everyone knows it
+
+force -> horse
+
+debate -> dance-off
+self driving -> uncontrollably swerving
+poll -> psychic reading
+candidate -> airbender
+drone -> dog
+vows to -> probably won't
+at large -> very large
+successfully -> suddenly
+expands -> physically expands
+first-degree -> friggin' awful
+second-degree -> friggin' awful
+third-degree -> friggin' awful
+an unknown number -> like hundreds
+front runner -> blade runner
+global -> spherical
+years -> minutes
+minutes -> years
+no indication -> lots of signs
+urgedrestraint by -> drunkenly egged on
+horsepower -> tons of horsemeat
+```
+
+And of course, our very own
+
+```
+cal -> butt
+```
+
+We're going to use the arrow syntax to communicate a text replacement rule for the rest of this project. In particular, we'll assume that every line of text corresponds to a single text replacement rule of the form
+```
+pattern -> replacement
+```
+
+That is, you can assume that every line will have exactly one instance of the substring `->` that separates two text entries. The pattern is guaranteed to be nonempty (i.e. will have at least one character in it). The replacement string could be the empty string (representing deletion of the pattern).
+
 Your task here is to implement a function `parseSettings` that accepts as input a string corresponding the text entered in the 
 
 ```
@@ -149,9 +216,11 @@ function parseSettings(text) {
 }
 ```
 
+You can test this function by entering replacement rules in the extension's browser action (reminder: the icon in the upper right corner of your Chrome window)
 
+*Edge cases*
 
-
+* No replacement text (i.e. a line such as `"pattern ->"`)
 
 ## Checkpoint 3: Image Replacement
 
