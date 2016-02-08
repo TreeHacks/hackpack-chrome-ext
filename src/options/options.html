@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cal->Butt Options</title>
+  <link rel="stylesheet" type="text/css" href="options.css">
+</head>
+
+<body>
+  <h1>Keep Your Options Open!</h1>
+  <p>This is an options page, accessible at "src/options/options.html", and you can use it to maintain persistent state </p>
+  <p>To allow users to customize the behavior of your extension, you may wish to provide an options page.</p>
+  <p>Check out <a href="https://developer.chrome.com/extensions/optionsV2">Chrome's Options Page documentation</a> for more info!</p>
+  <p>Note: We're using the *new* options format for Chrome Extensions, which is only available in Chrome 40+. Luckily, more than 70% of Chrome users have Chrome 40 or higher.</p>
+
+  Favorite color:
+  <select id="color">
+   <option value="red">red</option>
+   <option value="green">green</option>
+   <option value="blue">blue</option>
+   <option value="yellow">yellow</option>
+  </select>
+
+  <label>
+    <input type="checkbox" id="like">
+    I like colors.
+  </label>
+
+  <div id="status"></div>
+  <button id="save">Save</button>
+
+  <script src="options.js"></script>
+</body>
+</html>
