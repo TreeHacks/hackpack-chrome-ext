@@ -1,12 +1,4 @@
-# Chrome Extension Hackpack @ TreeHacks
-
-## Questions (for you guys)
-
-Should I add more images/gifs/before-afters of the extension in action?
-
-Should I have a diagram of information flow in the starter code?
-
-## BLURB
+# Cal -> Butt: Chrome Extension Hackpack @ TreeHacks 2016
 
 ## Overview
 
@@ -20,13 +12,68 @@ After you've finished these tasks, you will have built an exciting application t
 
 ## Getting Started
 
-Download the starter code from [the TreeHacks website](...) if you haven't already.
+**1. Download and unzip the [starter code](https://github.com/TreeHacks/hackpack-chrome-ext/archive/master.zip).**
 
-### SCREENSHOTS of SETTING IT UP
+You should roughly have the following files.
+
+```
+hackpack-chrome-ext-master/
+├── README.md
+├── _locales
+│   └── en
+│       └── messages.json
+├── css
+├── icons
+│   ├── TreeHacks-white-16.png
+│   ├── TreeHacks-white-19.png
+│   ├── TreeHacks-white-32.png
+│   ├── TreeHacks-white-48.png
+│   ├── TreeHacks-white-64.png
+│   ├── TreeHacks-white-96.png
+│   └── TreeHacks-white-128.png
+├── manifest.json
+└── src
+    ├── bg
+    │   └── background.js
+    ├── browser_action
+    │   ├── browser_action.css
+    │   ├── browser_action.html
+    │   └── browser_action.js
+    ├── inject
+    │   └── inject.js
+    └── options
+        ├── options.html
+        └── options.js
+```
+
+Alternatively, if you are a Git master, you can sync with [our Git repository](https://github.com/TreeHacks/hackpack-chrome-ext) over HTTPS or SSH. Note: If you aren't familiar with Git, or don't know what the following lines would do, don't execute the following commands!
+
+```
+# Clone via HTTPS
+$ git clone https://github.com/TreeHacks/hackpack-chrome-ext.git
+# or SSH
+$ git clone git@github.com:TreeHacks/hackpack-chrome-ext.git
+```
 
 ### Requirements
 
-* Of course, you'll need to be using the Chrome browser in order to build a Chrome extension. If you haven't yet, download Chrome from [this link](...).
+* Of course, you'll need to be using the Chrome browser in order to build a Chrome extension. If you haven't yet, download Chrome from [this link](https://www.google.com/chrome/browser/desktop/).
+
+### Enable Chrome Developer Settings
+
+We need to enable Chrome Developer Settings in order to build our chrome extension.
+
+At a high level:
+
+1. Navigate to [chrome://extensions](chrome://extensions) (in the url bar)
+2. Click the developer mode checkbox in the upper right corner of the window
+3. You should now see an additional menu with three buttons: Load Unpacked Extension, Pack Extension, and Update Extensions Now. Don't worry if it doesn't look exactly like that.
+
+### Load the Starter Code into Chrome
+
+Next, we have to tell Chrome to treat our starter code (`hackpack-chrome-ext-master/`) as a Chrome extension. To do this, 
+
+
 
 ### Learn Javascript
 
@@ -108,7 +155,31 @@ function parseSettings(text) {
 
 ## Checkpoint 3: Image Replacement
 
-For checkpoint 3, extend the functionality of the browser action to allow the user to specify image replacements. You can use whatever encoding scheme you want - however, we suggest that you use the scheme `img->http://path.to/image`
+In the third and final part of this hackpack, you will extend the functionality of the browser action to allow the user to specify image replacements. That is, users will be able to specify an image through the browser action so that all images on all websites will be replaced that chosen image.
+
+You can use whatever encoding scheme you want - however, we suggest that you use the scheme `img->http://path.to/image`
+
+In order to get a list of the images on a page, use `document.querySelectorAll('img')`. The documentation for this is [here](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll). For example, executing the following code through the JavaScript console on the [TreeHacks](https://www.treehacks.com/) main website yields
+
+```
+> imgs = document.querySelectorAll('img')
+> imgs
+[
+    <img class=​"twitter" src=​"images/​twitter.png">​,
+    <img class=​"facebook" src=​"images/​facebook.png">​,
+    <img class=​"logo" src=​"images/​logo.png" width=​"95px" height=​"95px">​,
+    <img src=​"../​images/​MLH.png">​,
+    <img src=​"images/​logos/​tera/​informatica.png" title=​"informatica">​,
+    <img src=​"images/​logos/​tera/​microsoft.png" title=​"microsoft">​,
+    <img src=​"images/​logos/​tera/​netsuite.png" title=​"netsuite">​,
+    ...
+] 
+> // Update the src attribue of the first image on the page.
+> imgs[0].src = 'http://factmag-images.s3.amazonaws.com/wp-content/uploads/2013/12/beyonce-121313.jpg'
+```
+
+Where should you make your changes?
+
 
 ## Extensions
 
@@ -117,6 +188,13 @@ Take a step back and look at what you've built. It's very impressive! Really, yo
 You can extend this framework to build really cool projects. The sky's the limit, but we've given some suggestions here.
 
 * Replace not just text nodes, but also provide replacements for other DOM elements! For example, replace all outgoing links with a link to Rick Astley (or if you're feeling cruel, only a small fraction - say 1% - of them)
-* 
+
+* Extend the replacement pattern matching by allowing users to specify 
+
+
+## Feedback
+
+If you have any comments, reach out to Sam Redmond (@organizer-sam on Slack) with feedback!
+
 
 
