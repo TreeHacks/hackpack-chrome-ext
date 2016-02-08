@@ -1,0 +1,61 @@
+/* File: manifest.json
+ * -------------------
+ * A manifest file (like this one) is used to
+ * give Chrome information about your extension.
+ * 
+ * For more details, check out the documentation:
+ * https://developer.chrome.com/extensions/manifest
+ */
+{
+  // Required
+  "manifest_version": 2,
+  "name": "Cal -> Butt",
+  "version": "0.0.1",
+
+  // Recommended
+  "default_locale": "en",
+  "description": "Chrome Extension Hackpack @ TreeHacks 2016",
+  "icons": {
+    "16": "icons/TreeHacks-white-16.png",
+    "32": "icons/TreeHacks-white-32.png",
+    "48": "icons/TreeHacks-white-48.png",
+    "64": "icons/TreeHacks-white-64.png",
+    "96": "icons/TreeHacks-white-96.png",
+    "128": "icons/TreeHacks-white-128.png"
+  },
+
+  // Optional
+  "homepage_url": "https://www.treehacks.com/",
+  "background": {
+    "scripts": [
+      "src/bg/background.js"
+    ],
+    "persistent": true
+  },
+  "options_ui": {
+    // Required.
+    "page": "src/options/options.html",
+    // Recommended.
+    "chrome_style": true
+  },
+  "browser_action": {
+    "default_icon": "icons/TreeHacks-white-19.png",
+    "default_title": "My Browser Action",
+    "default_popup": "src/browser_action/browser_action.html"
+  },
+  "permissions": [
+    "cookies",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
+    }
+  ]
+}
