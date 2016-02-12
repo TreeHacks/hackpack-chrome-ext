@@ -2,6 +2,9 @@
  * -------------------
  * A manifest file (like this one) is used to
  * give Chrome information about your extension.
+ *
+ * You shouldn't need to change anything in this file
+ * unless you're doing extensions.
  * 
  * For more details, check out the documentation:
  * https://developer.chrome.com/extensions/manifest
@@ -9,7 +12,7 @@
 {
   // Required
   "manifest_version": 2,
-  "name": "Cal -> Butt",
+  "name": "Cal to Butt",
   "version": "0.0.1",
 
   // Recommended
@@ -25,7 +28,20 @@
   },
 
   // Optional
+  
   "homepage_url": "https://www.treehacks.com/",
+
+  // Put any additional permissions your applications needs here.
+  // For a list of possibilities, see
+  // https://developer.chrome.com/extensions/declare_permissions
+  "permissions": [
+    "storage", // Allows access to chrome.storage API
+  ],
+
+  /****************************************************************/
+  // You probably shouldn't change anything below this line,
+  // unless you *really* know what you're doing.
+  
   "background": {
     "scripts": [
       "src/bg/background.js"
@@ -40,15 +56,12 @@
   },
   "browser_action": {
     "default_icon": "icons/TreeHacks-white-19.png",
-    "default_title": "My Browser Action",
+    "default_title": "Cal to Butt",
     "default_popup": "src/browser_action/browser_action.html"
   },
-  "permissions": [
-    "cookies",
-    "storage"
-  ],
   "content_scripts": [
     {
+      // Run the inject.js script on all HTTP(s) pages
       "matches": [
         "http://*/*",
         "https://*/*"
