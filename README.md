@@ -1,5 +1,5 @@
 # Cal -> Butt: Chrome Extension Hackpack @ TreeHacks 2016
-
+*Come join us on [#hackpack-chrome-ext](https://treehacks-2016.slack.com/messages/hackpack-chrome-ext) on Slack to get help, hang out, and show off your project!*
 ## Overview
 
 Congratulations! You've chosen this hackpack, and you're well on your way to building a super cool product! In this hackpack, you will build a chrome extension that replaces the content on webpages according to customizable rules. At a glance, your tasks will include:
