@@ -208,10 +208,10 @@ pattern -> replacement
 
 That is, you can assume that every line will have exactly one instance of the substring `->` that separates two text entries. The pattern is guaranteed to be nonempty (i.e. will have at least one character in it). The replacement string could be the empty string (representing deletion of the pattern).
 
-Your task here is to implement a function `parseSettings` that accepts as input a string corresponding the text entered in the 
+Your task here is to implement a function `parseSettings` that accepts as input an array of lines representing text replacement rules. It should return a dictionary 
 
 ```
-function parseSettings(text) {
+function parseSettings(lines) {
 	return null;
 }
 ```
