@@ -1,5 +1,7 @@
 # Cal to Butt: Chrome Extension Hackpack @ TreeHacks 2016
 
+*Come join us on [#hackpack-chrome-ext](https://treehacks-2016.slack.com/messages/hackpack-chrome-ext) on Slack to get help, hang out, and show off your project!*
+
 ## Overview
 
 Congratulations! You've chosen this hackpack, and you're well on your way to building a super cool product!
