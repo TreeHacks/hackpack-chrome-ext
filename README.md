@@ -261,9 +261,15 @@ You can extend this framework to build really cool projects. The sky's the limit
 * Extend the replacement pattern matching by allowing users to specify 
 
 
-## Feedback
+## Miscellaneous Notes
 
-If you have any comments, reach out to Sam Redmond (@organizer-sam on Slack) with feedback!
+### Localization
+
+
+
+### Feedback
+
+If you have any comments, reach out to Sam Redmond (@organizer-sam on Slack) with feedback! I'll be checking the #hackpack-chrome-ext channel throughout the hackathon. 
 
 
 

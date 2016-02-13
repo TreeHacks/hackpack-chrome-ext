@@ -35,7 +35,7 @@
   // For a list of possibilities, see
   // https://developer.chrome.com/extensions/declare_permissions
   "permissions": [
-    "storage", // Allows access to chrome.storage API
+    "storage" // Allows access to chrome.storage API
   ],
 
   /****************************************************************/
@@ -46,7 +46,7 @@
     "scripts": [
       "src/bg/background.js"
     ],
-    "persistent": true
+    "persistent": false // Event page
   },
   "options_ui": {
     // Required.
