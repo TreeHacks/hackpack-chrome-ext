@@ -17,14 +17,17 @@ making it look stylish can be a cool extension.
 	<link rel="stylesheet" type="text/css" href="browser_action.css">
 </head>
 <body>
-	<h2>Hello World! <small>(from src/browser_action/browser_action.html)</small></h2>
+	<h3>Hello World!</h3>
+	<h6>(Find me in src/browser_action/browser_action.html)</small></h6>
 	<form id="form">
 		<div class="form-group">
-			<label for="comment">Replacement Rules:</label>
+			<label for="settings">Replacement Rules:</label>
 			<textarea class="form-control" placeholder="cal -> butt" rows="5" id="settings"></textarea>
 		</div>
-		<button type="submit" class="btn btn-default" id ="submit">Submit</button>
+		<button type="button" class="btn btn-default" id="save">Save</button>
+		<button type="button" class="btn btn-default" id="clear">Clear</button>
 	</form>
+	<div id="status"></div>
 	<script src="browser_action.js"></script>
 </body>
 </html>
