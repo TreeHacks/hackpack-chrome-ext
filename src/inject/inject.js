@@ -123,15 +123,16 @@ chrome.extension.sendMessage({}, function(response) {
 		if (document.readyState === "complete") {
 			// This part of the script triggers when page is done loading
 			clearInterval(readyStateCheckInterval);
-			chrome.storage.local.get('settings', function(settings) {
+			chrome.storage.local.get('settings', function(response) {
 				var replacementRules = null;
-				if (typeof chrome.runtime.lastError !== 'undefined') {
+				if (typeof chrome.runtime.lastError === 'undefined') {
+					var settings = response.settings;
 					lines = settings.split("\n").filter(function(line) {
 						return line.indexOf("->") != -1;
 					});
-					console.log(lines);
 					replacementRules = parseSettings(lines);
 				}
+				console.log(replacementRules);
 				walk(document.body, replacementRules);
 				replaceAllImages(replacementRules)
 			});
@@ -162,7 +163,7 @@ function walk(node, settings)
 			while (child)
 			{
 				next = child.nextSibling;
-				walk(child);
+				walk(child, settings);
 				child = next;
 			}
 			break;
