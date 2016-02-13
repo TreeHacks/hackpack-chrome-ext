@@ -1,8 +1,24 @@
-// Saves options to chrome.storage.sync.
+/* File: options.js
+ * ----------------
+ * This file gives an example implementation of a program
+ * that saves and restores options from a form to Chrome's
+ * local storage.
+ *
+ * You won't need to update this function for the base
+ * hackpack, but it provides a flexible way to let your users
+ * customize the behavior of your application.
+ *
+ * If you do update this method, make sure that your changes
+ * appear in both save_options() and restore_options()
+ * 
+ * Full credit to Chromium authors.
+ */
+
+// Saves options to chrome.storage.local.
 function save_options() {
   var color = document.getElementById('color').value;
   var likesColor = document.getElementById('like').checked;
-  chrome.storage.sync.set({
+  chrome.storage.local.set({
     favoriteColor: color,
     likesColor: likesColor
   }, function() {
@@ -19,7 +35,7 @@ function save_options() {
 // stored in chrome.storage.
 function restore_options() {
   // Use default value color = 'red' and likesColor = true.
-  chrome.storage.sync.get({
+  chrome.storage.local.get({
     favoriteColor: 'red',
     likesColor: true
   }, function(items) {
@@ -28,10 +44,10 @@ function restore_options() {
   });
 }
 
-/***
- * Don't change code below this line!
- ***/
+/************************************************/
+// Don't change code below this line!
 
+// Restore settings when the DOM loads
 document.addEventListener('DOMContentLoaded', restore_options);
-document.getElementById('save').addEventListener('click',
-    save_options);
+// Save settings when the save button is clicked.
+document.getElementById('save').addEventListener('click', save_options);

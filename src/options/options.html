@@ -1,17 +1,30 @@
+<!--
+File: options.html
+=========================
+This file contains the HTML visible in the options page,
+which is the window that pops up when you click on the options
+link under your extension settings (accessible at 
+chrome://extensions from the Omnibar).
+
+Update this HTML file to change the layout if you'd like!
+
+The file doesn't need to be updated for the hackpack, but
+making it look stylish can be a cool extension.
+-->
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cal->Butt Options</title>
+  <title>Cal to Butt Options</title>
   <link rel="stylesheet" type="text/css" href="options.css">
 </head>
 
 <body>
   <h1>Keep Your Options Open!</h1>
-  <p>This is an options page, accessible at "src/options/options.html", and you can use it to maintain persistent state </p>
-  <p>To allow users to customize the behavior of your extension, you may wish to provide an options page.</p>
+  <p>This options page (found at "src/options/options.html") can be used to maintain persistent state which allows users to customize options.</p>
   <p>Check out <a href="https://developer.chrome.com/extensions/optionsV2">Chrome's Options Page documentation</a> for more info!</p>
   <p>Note: We're using the *new* options format for Chrome Extensions, which is only available in Chrome 40+. Luckily, more than 70% of Chrome users have Chrome 40 or higher.</p>
-  <p>Use this to get any extra information from your users for extensions!</p>
+  <p>You won't need to change this HTML for the base hackpack, but it can be useful for extensions!</p>
+  <p>An example form is shown below (credit to Chromium). Your choices are saved even if you close the options page.</p>
 
   Favorite color:
   <select id="color">
