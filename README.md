@@ -123,6 +123,8 @@ Test your method by visiting the [CalHacks website](http://www.calhacks.io/) or 
 
 Can you make the replacement respect the casing of the original text? That is, can you implement `modifyText` so that `modifyText('iCal')` returns `iButt` and `modifyText('calendar')` returns `buttender`?
 
+NOTE: If you update your code, the extension won't automatically update. You'll need to go to chrome://extensions and hit reload under your extension. 
+
 ## Checkpoint 2: Custom Translations
 
 If you read XKCD, some of this may seem familiar to you. If you haven't read XKCD, you should celebrate your completion of part 1 with some [good old-fashioned webcomics](http://xkcd.com/).
