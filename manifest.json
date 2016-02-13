@@ -16,7 +16,6 @@
   "version": "0.0.1",
 
   // Recommended
-  "default_locale": "en",
   "description": "Chrome Extension Hackpack @ TreeHacks 2016",
   "icons": {
     "16": "icons/TreeHacks-white-16.png",
