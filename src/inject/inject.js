@@ -97,6 +97,9 @@ function parseSettings(lines) {
  * You'll need to decide how to represent image replacements
  * in your map for part 2. This will involve changing your
  * implementation of `parseSettings()`.
+ *
+ * You are allowed (and encouraged) to build helper functions
+ * for this task, corresponding to the 3 steps below.
  * 
  * @param (map) settings (possibly null)
  *        Collection of replacement rules as built in Part 2
@@ -123,7 +126,10 @@ chrome.extension.sendMessage({}, function(response) {
 			chrome.storage.local.get('settings', function(settings) {
 				var replacementRules = null;
 				if (typeof chrome.runtime.lastError !== 'undefined') {
-					lines = settings.split("\n");
+					lines = settings.split("\n").filter(function(line) {
+						return line.indexOf("->") != -1;
+					});
+					console.log(lines);
 					replacementRules = parseSettings(lines);
 				}
 				walk(document.body, replacementRules);
