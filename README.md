@@ -1,12 +1,14 @@
-# Cal -> Butt: Chrome Extension Hackpack @ TreeHacks 2016
-*Come join us on [#hackpack-chrome-ext](https://treehacks-2016.slack.com/messages/hackpack-chrome-ext) on Slack to get help, hang out, and show off your project!*
+# Cal to Butt: Chrome Extension Hackpack @ TreeHacks 2016
+
 ## Overview
 
-Congratulations! You've chosen this hackpack, and you're well on your way to building a super cool product! In this hackpack, you will build a chrome extension that replaces the content on webpages according to customizable rules. At a glance, your tasks will include:
+Congratulations! You've chosen this hackpack, and you're well on your way to building a super cool product!
 
-1. Replace all instances of the text 'cal' with the text 'butt' on all webpages.
-2. Allow a user to customize replacement rules that determine the text replacement on webpages
-3. Replace all images on a website with a user-specified image 
+In this hackpack, you will build a chrome extension that replaces the content on webpages according to customizable rules. At a glance, your tasks will include:
+
+1. Replace all instances of the text "cal" with the text "butt" on all webpages.
+2. Replace all text on a webpage according to user-specified replacement rules.
+3. Replace all images on a website according to user-specified replacement rules.
 
 After you've finished these tasks, you will have built an exciting application that you can use in your own browser!
 
@@ -19,18 +21,15 @@ You should roughly have the following files.
 ```
 hackpack-chrome-ext-master/
 ├── README.md
-├── _locales
-│   └── en
-│       └── messages.json
+├── manifest.json
 ├── icons
+│   ├── TreeHacks-white-128.png
 │   ├── TreeHacks-white-16.png
 │   ├── TreeHacks-white-19.png
 │   ├── TreeHacks-white-32.png
 │   ├── TreeHacks-white-48.png
 │   ├── TreeHacks-white-64.png
-│   ├── TreeHacks-white-96.png
-│   └── TreeHacks-white-128.png
-├── manifest.json
+│   └── TreeHacks-white-96.png
 └── src
     ├── bg
     │   └── background.js
@@ -41,8 +40,8 @@ hackpack-chrome-ext-master/
     ├── inject
     │   └── inject.js
     └── options
-        ├── options.html
         ├── options.css
+        ├── options.html
         └── options.js
 ```
 
@@ -57,19 +56,35 @@ $ git clone https://github.com/TreeHacks/hackpack-chrome-ext.git
 $ git clone git@github.com:TreeHacks/hackpack-chrome-ext.git
 ```
 
-### Requirements
+### Getting Started
 
-* Of course, you'll need to be using the Chrome browser in order to build a Chrome extension. If you haven't yet, download Chrome from [this link](https://www.google.com/chrome/browser/desktop/).
+#### Download Google Chrome
 
-### Enable Chrome Developer Settings
+In order to build a Chrome extension, you'll need Google Chrome! If you haven't downloaded Chrome already, download the latest version [here](https://www.google.com/chrome/browser/desktop/). For this hackpack, you'll need Chrome Version 40 or newer. In order to figure out which version you have, go to [chrome://version/](chrome://version/) in the Omnibar, and look at the top line. You should see something like
+
+```
+Google Chrome	48.0.2564.109 (Official Build) (64-bit)
+```
+
+Don't worry if it's not exactly the same. As long as the major number (before the decimal point) is greater than 40, you're set!
+
+#### Load the Starter Code
+
+Chrome usually ships extensions as `.crx` files (similar to `.zip` files), which is great for distribution, but not so great for developing. Instead, we'll tell Chrome to treat the starter code folder as an extension.
 
 We need to enable Chrome Developer Settings in order to build our chrome extension.
 
-At a high level:
+In order to do this:
 
-1. Navigate to [chrome://extensions](chrome://extensions) (in the url bar)
-2. Click the developer mode checkbox in the upper right corner of the window
-3. You should now see an additional menu with three buttons: Load Unpacked Extension, Pack Extension, and Update Extensions Now. Don't worry if it doesn't look exactly like that.
+1. Navigate to [chrome://extensions](chrome://extensions) in your browser.
+2. Ensure that the **Developer mode** checkbox in the top right-hand corner is checked.
+3. Click **Load unpacked extension...** to pop up a file-selection dialog.
+4. Navigate to the directory in which your extension files live, and select it.
+
+You should now see a screen that looks like the below:
+
+![Loading Starter Code](http://imgur.com/sXgh4Ae)
+
 
 ### Load the Starter Code into Chrome
 
@@ -122,8 +137,6 @@ For example, `modifyText('kern is a calhacks organizer', null)` should return th
 Test your method by visiting the [CalHacks website](http://www.calhacks.io/) or the [UC Berkeley Wiki page](https://en.wikipedia.org/wiki/University_of_California,_Berkeley)
 
 Can you make the replacement respect the casing of the original text? That is, can you implement `modifyText` so that `modifyText('iCal')` returns `iButt` and `modifyText('calendar')` returns `buttender`?
-
-NOTE: If you update your code, the extension won't automatically update. You'll need to go to chrome://extensions and hit reload under your extension. 
 
 ## Checkpoint 2: Custom Translations
 
@@ -263,15 +276,15 @@ You can extend this framework to build really cool projects. The sky's the limit
 * Extend the replacement pattern matching by allowing users to specify 
 
 
-## Miscellaneous Notes
-
-### Localization
-
-
+## Miscellaneous Information
 
 ### Feedback
 
-If you have any comments, reach out to Sam Redmond (@organizer-sam on Slack) with feedback! I'll be checking the #hackpack-chrome-ext channel throughout the hackathon. 
+If you have any comments, reach out to Sam Redmond (@organizer-sam on Slack) with feedback!
+
+### Credit
+
+Credit for the idea goes to the originators of the Cloud-to-Butt Chrome Extension, credit for great documentation (much of which we shameless stole) goes to the Chromium contributors, and credit for the images goes to XKCD.
 
 
 
