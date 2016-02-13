@@ -1,8 +1,10 @@
-/*
- * Customize the appearance of your popup window here!
+/* File: browser_action.css
+ * ------------------------
+ * Add any custom styles for your browser action here.
  */
 body {
-	padding: 10px;
-	height: 200px;
+	/* For example */
+	padding: 20px;
+	height: 250px;
 	width: 400px;
 }
