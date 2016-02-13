@@ -105,8 +105,8 @@ function parseSettings(lines) {
  	// Currently, this method does nothing. Update it so that
  	// it (1) finds all the images on the page, (2) uses the
  	// settings to determine an appropriate replacement image
- 	// (we recommend Beyonce: http://imgur.com/umfG8Lj), and
- 	// (3) replace the src of the image with the replacement
+ 	// (we recommend Beyonce: http://i.imgur.com/umfG8Lj.jpg),
+ 	// and (3) replace the src of the image with the replacement
  	// image.
  	return;
  }
