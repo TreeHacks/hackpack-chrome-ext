@@ -83,64 +83,71 @@ In order to do this:
 
 You should now see a screen that looks like the below:
 
-![Loading Starter Code](http://imgur.com/sXgh4Ae)
+![Loading Starter Code](http://i.imgur.com/sXgh4Ae.png)
 
+Note that the **Developer mode** checkbox is checked, and the extension is enabled.
 
-### Load the Starter Code into Chrome
+Additionally, pay close attention to the **Reload** link.
 
-Next, we have to tell Chrome to treat our starter code (`hackpack-chrome-ext-master/`) as a Chrome extension. To do this, 
+**By default, Chrome will _not_ reload your extension automatically if you update your code. Thus, if you want to test your extension, you _must_ reload the extension before testing. Otherwise, your changes will _not_ be present in the active extension.** Basically, every time you make a change to your code that you want to test live in Chrome, make sure to reload the extension using that **Reload** button.
 
 ### Background Knowledge
 
-For this project, you will need some knowledge of Javascript.
+For this project, you will need some knowledge of Javascript and Chrome Extensions. The starter code should have sufficient comments to explain each file, but if you want to get a deeper understanding of these systems before beginning the hackpack, we've provided links to some tutorials below. In particular, if you've never seen Javascript before, we _highly_ recommend going through a Javascript tutorial. 
 
-### Learn Javascript
+#### Learn about Javascript
 
 What is JavaScript?
 > JavaScript is a scripting language for computers. It is often run in web browser applications to create dynamic content like a popup message or a live clock. It is not related to the programming language Java.
 
-If you've never seen JavaScript before, you will need to learn a bit of the language for this project. Luckily, there are tons of amazing tutorials online. We've curated a couple for you: 
+Here are a few of our favorite Javascript tutorials!
 
-```
-if you've seen lots of programming languages before:
-    goto https://learnxinyminutes.com/docs/javascript/ (about 10 minutes)
-otherwise if you want a more in-depth, practice-oriented overview of the language:
-    goto https://www.codecademy.com/learn/javascript   (about 10 hours)
-otherwise if you need a refresher on the whole web technology thing
-    goto http://www.w3schools.com/
-```
+If you're an expert in several programming languages before, or you used to know Javascript and you just need a refresher on the syntax, check out [Learn X in Y Minutes](https://learnxinyminutes.com/docs/javascript/). This tutorial takes about 10 minutes.
 
-### The Basics of Chrome Extensions
+If you've never seen (or heard of) Javascript before, or you want an in-depth, involved tutorial that takes you through Javascript from the ground up, we recommend [Codecademy](https://www.codecademy.com/learn/javascript). This tutorial takes about 10 hours.
 
-If you want to learn more about Chrome Extensions, read through [their introduction](https://developer.chrome.com/extensions).
+If you want a comprehensive tutorial of all things Javascript, check out [W3 Schools](http://www.w3schools.com/js/). This tutorial takes about 10 hours. 
 
-## Checkpoint 1: Cal --> Butt
+Of course, you're free to find your own tutorials, or learn by doing.
 
-For the first checkpoint, you will need to implement a function called `modifyText` that is given the contents of some text node on the page, along with some optional settings (which will be `null` for this part, so you can ignore it). For now, your task:
+#### The Basics of Chrome Extensions
 
-Task 1: **Update `modifyText` to replace every instance of 'cal' with 'butt'**
+What are Chrome Extensions?
+> Extensions are small software programs that can modify and enhance the functionality of the Chrome browser. You write them using web technologies such as HTML, JavaScript, and CSS.
 
-Your function should return the modified string. 
+If you want to learn more about Chrome Extensions, read through Google's [introduction](https://developer.chrome.com/extensions) to extensions and Google's high-level [overview](https://developer.chrome.com/extensions/overview).
+
+## Checkpoint 1: Cal to Butt
+
+With all that out of the way, let's get started!
+
+**Task A: Read the starter code**
+
+Before you begin writing any code, read through the starter code and comments we've provided. In particular, read all of `src/inject/inject.js`, because you will be making most of your changes in that file. If you have any questions, this would be a great opportunity to ask for help on our Slack channel!
+
+**Task B: Update `modifyText` to replace every instance of 'cal' with 'butt'**
+
+For the first task, you will update the `modifyText` function in `src/inject/inject.js` to replace every instance of the substring 'cal' with the string 'butt' in a given word and returns the modified string. For Part 1, the `settings` variable will be null.
+
+For example, `modifyText('calhacks organizer', null)` should return `butthacks organizer`.
 
 ```
 /* File src/inject/inject.js */
-function modifyText(text, settings) { // For part 1, settings will always be null
+function modifyText(text, settings) {
 	// YOUR CODE HERE
 	return text;
 }
 ```
 
-For example, `modifyText('kern is a calhacks organizer', null)` should return the string `'kern is a butthacks organizer'`. 
+Test your method by visiting the [UC Berkeley Wiki page](https://en.wikipedia.org/wiki/University_of_California,_Berkeley) or the [CalHacks website](http://www.calhacks.io/). I personally like the [Calculus Wiki page](https://en.wikipedia.org/wiki/Calculus).
 
 (Hint: Check out the documentation on [JavaScript String replace](http://www.w3schools.com/jsref/jsref_replace.asp))
 
-Test your method by visiting the [CalHacks website](http://www.calhacks.io/) or the [UC Berkeley Wiki page](https://en.wikipedia.org/wiki/University_of_California,_Berkeley)
-
-Can you make the replacement respect the casing of the original text? That is, can you implement `modifyText` so that `modifyText('iCal')` returns `iButt` and `modifyText('calendar')` returns `buttender`?
+_Edge cases_: What happens to the string `'iCalendar'`? Try to update `modifyText` so that it respects the original case of the substring `cal`. That is, `'cal' -> 'butt'`, but also `'Cal' -> 'Butt'` and `'CAL' -> 'BUTT'`. What other common casing schemes will your function account for?
 
 ## Checkpoint 2: Custom Translations
 
-If you read XKCD, some of this may seem familiar to you. If you haven't read XKCD, you should celebrate your completion of part 1 with some [good old-fashioned webcomics](http://xkcd.com/).
+We're not the first to think of this. If you read XKCD, some of this may seem familiar to you. If you haven't read XKCD, well, it's time to take a coding break and read some [good old-fashioned webcomics](http://xkcd.com/). Here are a few of our favorites.
 
 ---
 
@@ -164,7 +171,7 @@ If you read XKCD, some of this may seem familiar to you. If you haven't read XKC
 
 ---
 
-These comics show some great text replacements, which I've reproduced here in plaintext format.
+These comics show some great text replacements, which are reproduced here in plaintext format.
 
 ```
 batman -> a man dressed like a bat
@@ -216,71 +223,125 @@ And of course, our very own
 cal -> butt
 ```
 
-We're going to use the arrow syntax to communicate a text replacement rule for the rest of this project. In particular, we'll assume that every line of text corresponds to a single text replacement rule of the form
+We're going to use this "arrow syntax" to represent a text replacement rule for the rest of this project. In particular, we'll let
 ```
 pattern -> replacement
 ```
+represent the transformation from the string `"pattern"` to the string `"replacement"`. For example, `"years -> minutes"` means that we replace every instance of the substring `"years"` with the string `"minutes"`, and `"minutes -> years"` means that we replace every instance of the substring `"minutes"` with the string `"years"`.
 
-That is, you can assume that every line will have exactly one instance of the substring `->` that separates two text entries. The pattern is guaranteed to be nonempty (i.e. will have at least one character in it). The replacement string could be the empty string (representing deletion of the pattern).
+**Task C: Parse a list of strings into a map of replacement rules.**
 
-Your task here is to implement a function `parseSettings` that accepts as input an array of lines representing text replacement rules. It should return a dictionary 
+For this task, you will write the function `parseSettings` in `src/inject/inject.js` to convert an input array of lines representing replacement rules and output a map from patterns to their replacements.
+
+The function signature is
 
 ```
 function parseSettings(lines) {
+    // YOUR CODE HERE
 	return null;
 }
 ```
 
-You can test this function by entering replacement rules in the extension's browser action (reminder: the icon in the upper right corner of your Chrome window)
+For example,
 
-*Edge cases*
+```
+parseSettings([
+  "batman -> a man dressed like a bat",
+  "keyboard -> leopard",
+  "force -> horse"
+])
+```
+should return
 
-* No replacement text (i.e. a line such as `"pattern ->"`)
+```
+{ 
+   "batman": "a man dressed like a bat",
+   "keyboard": "leopard",
+   "force": "horse"
+}
+```
+
+You are guaranteed that each entry in the array of lines contains the substring `'->'` at least once.
+
+_Edge cases_: How does your function process the line `"a -> b -> c"`. Does it turn it into `"a": "b -> c"`, into `"a -> b": "c"`, or something else? What if there is no pattern (i.e. the line looks like `"->word"` with no text before the arrow)? What if there is no replacement (i.e. the line looks like `"word->"` with no text after the arrow)? What about the line with just 2 characters `->` (i.e. no text before or after the arrow)? How does your function handle whitespace? Does it process the line `" a -> b "` as `"a":"b"` or as `" a ": " b "`? What happens if there are two different lines, each with the same pattern. For example, perhaps one line of the array is `"force->horse"` and another entry is `"force->fore"`?
+
+**Task D: Use a map of replacement rules to perform several text replacements**
+
+Having completed the `parseSettings` function, we now need to go back to the `modifyText` function to use our new replacement rules! The starter code will take the return value of your `parseSettings` function and pass it into the `modifyText` function as the `settings` variable.
+
+For this task, you'll need to update `modifyText` in `src/inject/inject.js`, so that all replacement rules from the map are enacted.
+
+For example, if the map contains an association between `"force"` and `"horse"` (i.e. `settings["force"] = "horse"`), then any instance of the substring `"force"` should be replaced by the string `"horse"` in the text, and so on for the rest of the `pattern: replacement` pairs in the map. As always, you should still be replacing `"cal"` with `"butt"`
+
+_Edge cases_: What order are replacements evaluated in? Suppose `settings = {'train':'bus', 'use':'eat'}`. What happens to the string `"trainer"`? Does `train` apply first, leading to `buser` and then `beatr`? Or does `use` apply first (with no effect), followed by `train` for a final string of `buser`? Like in Checkpoint 1, how do you handle the case of the original text? Is there a general way to respect the original case?
+
+**Using the browser action.**
+
+In order to test this function, we've provided you with a browser action for the extension. In the upper right hand corner of the Chrome window, there will be a small TreeHacks icon).
+
+![Browser Action Icon](http://i.imgur.com/pADUqSI.png)
+
+Click on the icon to reveal a UI where you can enter replacement rules. The replacement rules that you enter will be passed into your functions and applied to the page. A screenshot of this is shown below:
+
+![Browser Action](http://i.imgur.com/xIAZQG8.png)
+
+The text you enter in this box is persistent - it won't disappear when you close the popup. If you're interested, the code for doing this is in `src/browser_action/`. Hitting the save button saves the text to Chrome's local storage, and hitting the clear button clears the local storage.
 
 ## Checkpoint 3: Image Replacement
 
-In the third and final part of this hackpack, you will extend the functionality of the browser action to allow the user to specify image replacements. That is, users will be able to specify an image through the browser action so that all images on all websites will be replaced that chosen image.
+For the 3rd and final checkpoint, you will extend the functionality of the extension to allow the user to specify image replacements, just like text replacements.
 
-You can use whatever encoding scheme you want - however, we suggest that you use the scheme `img->http://path.to/image`
+Since this is the final part of the hackpack, we're giving you a little less guidance and a little more freedom here. You can use whatever encoding scheme you want to represent image translation rules. We suggest that you use the scheme `img->https://path.to/image.png` to indicate that all images should be replaced by the image at `https://path.to/image.png`. Depending on how you choose to represent your image replacement rules, you may have separate steps than those below.
 
-In order to get a list of the images on a page, use `document.querySelectorAll('img')`. The documentation for this is [here](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll). For example, executing the following code through the JavaScript console on the [TreeHacks](https://www.treehacks.com/) main website yields
+**Task E: Find all images on a given webpage.**
 
-```
-> imgs = document.querySelectorAll('img')
-> imgs
-[
-    <img class=​"twitter" src=​"images/​twitter.png">​,
-    <img class=​"facebook" src=​"images/​facebook.png">​,
-    <img class=​"logo" src=​"images/​logo.png" width=​"95px" height=​"95px">​,
-    <img src=​"../​images/​MLH.png">​,
-    <img src=​"images/​logos/​tera/​informatica.png" title=​"informatica">​,
-    <img src=​"images/​logos/​tera/​microsoft.png" title=​"microsoft">​,
-    <img src=​"images/​logos/​tera/​netsuite.png" title=​"netsuite">​,
-    ...
-] 
-> // Update the src attribue of the first image on the page.
-> imgs[0].src = 'http://factmag-images.s3.amazonaws.com/wp-content/uploads/2013/12/beyonce-121313.jpg'
-```
+If we want to replace all images on a webpage, we'll first need to have all the images on that webpage. Write a (helper) method that returns a list of all images on a page.
 
-Where should you make your changes?
+You may be tempted to use jQuery, but be warned - incorporating jQuery into a Chrome extension isn't easy, and there's a way to solve this using vanilla JS. If you need a hint, check out the [documentation](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll) for `querySelectorAll`.
 
+**Task F: Update `parseSettings` to handle image replacement rules in addition to text replacement rules.**
+
+You'll need to change the implementation of `parseSettings` to look out for image replacement rule(s). How will you represent an image replacement rule? 
+
+**Task G: Update the source of each image on the page.**
+
+Once you have the images and the replacement URL, write code to update the original image so that it displays the target URL. If you need a hint, look at the `src` attribute on images.
+
+**Task H: We're All in This Together**
+
+With these helper methods in hand, implement the `replaceAllImages` function in `src/inject/inject.js`. This function is called immediately after text replacements are evaluated. If all goes well, you should be able to enter an image replacement rule into the browser action, and see that all images are replaced!
+
+## Congratulations!
+
+You did it! Very well done. You've built a cool chrome extension that replaces content on websites, and what's more, you get to keep it!
+
+Take a moment to relax, take a deep breath, and look back on the project you've built. It's very impressive!
+
+If you get to this point, come to the Slack channel #hackpack-chrome-ext to celebrate! You deserve it.
 
 ## Extensions
 
-Take a step back and look at what you've built. It's very impressive! Really, you've built a message-passing interface from a chrome extension dropdown window to a background script that is injected on every page. We've been using this to pass information about text and image replacements to the background script, but there's no reason we have to stop here!
+At a high-level, you've built a system that relies on message passing between a popup dialog (Chrome's browser action) and a script that runs on every webpage. We've been using this to pass information about text and image replacements to the injection script, but there's no reason we have to stop there!
 
 You can extend this framework to build really cool projects. The sky's the limit, but we've given some suggestions here.
 
-* Replace not just text nodes, but also provide replacements for other DOM elements! For example, replace all outgoing links with a link to Rick Astley (or if you're feeling cruel, only a small fraction - say 1% - of them)
+* Match more than just plain text - match regular expressions! Extend the functionality of `modifyText` to treat the patterns from `settings` as representing regular expressions, not just plain text.
+* Support matching on document selectors from the DOM. Match on tag names (like `img`, but also `a` and `iframe`), or `.class` names, or maybe even `#id`s. Can you build support for the [full set](http://www.w3schools.com/cssref/css_selectors.asp) of selectors?
+* Don't replace all images - just replace a few (say 1%). Could you change youtube links (`a` tags with an `href` containing `"youtube"`) to Rick Astley videos?
 
-* Extend the replacement pattern matching by allowing users to specify 
+Moving away from the realm of replacements,
 
+* Allow the user to signal information to the background script. Perhaps ask them for their name, and highlight in red any text that contains their name.
+* Let the user specify a bunch of servers to act as proxies. You've built a basic Tor!
+* Allow a user to input their health data, and suggest (via friendly popup or redirect) that they exercise every period of time they spend browsing one site (*cough* reddit *cough*).
 
-## Miscellaneous Information
+This is just the beginning. Let your imagination run wild. We can't wait to see what you build!
+
+## Miscellaneous
 
 ### Feedback
 
-If you have any comments, reach out to Sam Redmond (@organizer-sam on Slack) with feedback!
+If you have any comments, positive or negative, reach out to Sam Redmond (@organizer-sam on Slack) with feedback! We'd love to hear what you think is great, and what you think we can improve.
 
 ### Credit
 
