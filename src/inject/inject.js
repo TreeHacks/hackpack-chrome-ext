@@ -85,14 +85,31 @@ function parseSettings(lines) {
  * 
  * Replace all images on a webpage with another
  * source image, according to some settings.
- * 
- * 
  *
+ * Since this is a harder part of the hackpack,
+ * we'll give you more flexibility on this method.
  * 
+ * We pass the settings you create in part 2 into this
+ * function. Use that collection of replacement rules
+ * however you want, although be aware that you may have
+ * to change modifyText as well.
  *
+ * You'll need to decide how to represent image replacements
+ * in your map for part 2. This will involve changing your
+ * implementation of `parseSettings()`.
  * 
- *
+ * @param (map) settings (possibly null)
+ *        Collection of replacement rules as built in Part 2
  */
+ function replaceAllImages(settings) {
+ 	// Currently, this method does nothing. Update it so that
+ 	// it (1) finds all the images on the page, (2) uses the
+ 	// settings to determine an appropriate replacement image
+ 	// (we recommend Beyonce: http://imgur.com/umfG8Lj), and
+ 	// (3) replace the src of the image with the replacement
+ 	// image.
+ 	return;
+ }
 
 /****************************w************
  * DO NOT MODIFY CODE BENEATH THIS LINE *
@@ -104,13 +121,13 @@ chrome.extension.sendMessage({}, function(response) {
 			// This part of the script triggers when page is done loading
 			clearInterval(readyStateCheckInterval);
 			chrome.storage.local.get('settings', function(settings) {
+				var replacementRules = null;
 				if (typeof chrome.runtime.lastError !== 'undefined') {
 					lines = settings.split("\n");
 					replacementRules = parseSettings(lines);
-					walk(document.body, replacementRules);
-				} else {
-					walk(document.body, null);
 				}
+				walk(document.body, replacementRules);
+				replaceAllImages(replacementRules)
 			});
 		}
 	}, 10);
