@@ -350,4 +350,5 @@ If you have any comments, positive or negative, reach out to Sam Redmond (@organ
 Credit for the idea goes to the originators of the Cloud-to-Butt Chrome Extension, credit for great documentation (much of which we shameless stole) goes to the Chromium contributors, and credit for the images goes to XKCD.
 
 
-
+### License
+MIT
