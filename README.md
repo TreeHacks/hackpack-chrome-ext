@@ -11,9 +11,9 @@ It utilizes some Javascript and HTML to edit website displays, and can be easily
 ## Getting Started
 
 ### Download and unzip starter code
-Download and unzip the [starter code] (https://github.com/TreeHacks/hackpack-chromeExt)
+Download and unzip the [starter code] (https://github.com/TreeHacks/hackpack-chrome-ext)
 
-Alternatively, if you are a Git master, you can sync with [our Git repository](https://github.com/TreeHacks/hackpack-chromeExt)  over HTTPS or SSH. Note: If you aren't familiar with Git, or don't know what the following lines would do, don't execute the following commands!
+Alternatively, if you are a Git master, you can sync with [our Git repository](https://github.com/TreeHacks/hackpack-chrome-ext)  over HTTPS or SSH. Note: If you aren't familiar with Git, or don't know what the following lines would do, don't execute the following commands!
 
 ```
 # From Terminal.app or equivalent...
