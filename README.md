@@ -139,7 +139,7 @@ If you have any comments, positive or negative, reach out to Michelle Bao (@orga
 
 ### Credit
 
-Credit for the idea goes to the originators of the Cloud-to-Butt Chrome Extension, credit for great documentation (much of which we shamelessly stole) goes to the Chromium contributors, credit for the images goes to XKCD, credit for this hackpack in past years goes to Sam Redmond and Joy Hsu.
+Credit for the idea goes to the originators of the Cloud-to-Butt Chrome Extension. Credit for great documentation (much of which we shamelessly stole) goes to the Chromium contributors. Credit for the images goes to XKCD. Credit for this hackpack in past years goes to [Sam Redmond](https://github.com/sredmond) and [Joy Hsu](https://github.com/joyhsu0504). This year's hackpack was developed by [Michelle Bao](https://github.com/michellebao/).
 
 
 ### License
