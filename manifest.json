@@ -5,10 +5,11 @@
  *
  * You shouldn't need to change anything in this file
  * unless you're doing extensions.
- * 
+ *
  * For more details, check out the documentation:
  * https://developer.chrome.com/extensions/manifest
  */
+
 {
   // Required
   "manifest_version": 2,
@@ -16,7 +17,7 @@
   "version": "0.0.1",
 
   // Recommended
-  "description": "Chrome Extension Hackpack @ TreeHacks 2016",
+  "description": "Chrome Extension Hackpack @ TreeHacks 2019",
   "icons": {
     "16": "icons/TreeHacks-white-16.png",
     "32": "icons/TreeHacks-white-32.png",
@@ -27,7 +28,6 @@
   },
 
   // Optional
-  
   "homepage_url": "https://www.treehacks.com/",
 
   // Put any additional permissions your applications needs here.
@@ -35,39 +35,24 @@
   // https://developer.chrome.com/extensions/declare_permissions
   "permissions": [
     "storage" // Allows access to chrome.storage API
-  ],
+],
 
-  /****************************************************************/
-  // You probably shouldn't change anything below this line,
-  // unless you *really* know what you're doing.
-  
-  "background": {
-    "scripts": [
-      "src/bg/background.js"
-    ],
-    "persistent": false // Event page
-  },
-  "options_ui": {
-    // Required.
-    "page": "src/options/options.html",
-    // Recommended.
-    "chrome_style": true
-  },
+  // Probably will not need to be modified unless you *really*
+  // know what you're doing
   "browser_action": {
     "default_icon": "icons/TreeHacks-white-19.png",
     "default_title": "Cal to Butt",
-    "default_popup": "src/browser_action/browser_action.html"
+    "default_popup": "src/popup.html"
   },
   "content_scripts": [
     {
-      // Run the inject.js script on all HTTP(s) pages
       "matches": [
-        "http://*/*",
-        "https://*/*"
+        "*://*/*"
       ],
       "js": [
-        "src/inject/inject.js"
-      ]
+        "/src/content.js"
+      ],
+      "run_at": "document_end"
     }
   ]
 }
